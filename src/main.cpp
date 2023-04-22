@@ -21,7 +21,7 @@ void raytrace(Image* output) {
 
 
 int main() {
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "RayBaser 0.00");
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "RayBaser");
     SetTargetFPS(60);
 
     Texture2D out_texture;
