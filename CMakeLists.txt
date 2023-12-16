@@ -26,6 +26,10 @@ target_link_libraries(${PROJECT_NAME}
   raylib
 )
 
+find_package(OpenMP)
+if(OpenMP_CXX_FOUND)
+    target_link_libraries(${PROJECT_NAME} OpenMP::OpenMP_CXX)
+endif()
 
 ##################
 # Internal stuff #
@@ -33,6 +37,7 @@ target_link_libraries(${PROJECT_NAME}
 target_sources(${PROJECT_NAME}
   PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ray.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/primitive.cpp
 )
 target_include_directories(${PROJECT_NAME}
   PUBLIC
