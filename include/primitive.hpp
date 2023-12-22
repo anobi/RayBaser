@@ -34,6 +34,7 @@ public:
     }
 
     void set_radius(float radius) { this->radius = radius; }
+    float get_radius(float radius) { this->radius = radius; }
     
 private:
     float radius = 1.0f;

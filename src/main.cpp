@@ -26,7 +26,6 @@ Color color_fvec(const glm::fvec3 v) {
 
 
 Color ray_color_at(const Raybaser::Ray& ray) {
-
     if(sphere.Hit(ray.get_position_at(1.0f), ray.get_direction())) {
         return color_fvec(sphere.get_color());
     }
