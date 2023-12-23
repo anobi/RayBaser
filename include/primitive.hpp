@@ -3,9 +3,8 @@
 #include <glm/glm.hpp>
 
 class Primitive {
-protected:
 public:
-    virtual bool Hit(glm::fvec3 ray_position, glm::fvec3 ray_direction) {}
+    virtual bool Hit(glm::fvec3 ray_position, glm::fvec3 ray_direction) { return false; }
     glm::fvec3 get_position() { return this->position; }
     glm::fvec3 get_color() { return this->color; }
 
@@ -34,7 +33,7 @@ public:
     }
 
     void set_radius(float radius) { this->radius = radius; }
-    float get_radius(float radius) { this->radius = radius; }
+    float get_radius(float radius) { return this->radius; }
     
 private:
     float radius = 1.0f;

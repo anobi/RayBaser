@@ -12,14 +12,14 @@ const float ASPECT_RATIO = SCREEN_WIDTH / SCREEN_HEIGHT;
 Sphere sphere = Sphere(glm::fvec3(0.0f, 0.0f, -1.0f), glm::fvec3(1.0f, 0.0f, 0.5f), 0.5f);
 
 
-int c_f2i(const float f) { return (f >= 1.0 ? 255 : (f <= 0.0 ? 0 : (int)floor(f * 256.0))); }
+int c_f2i(const float f) { return (f >= 1.0 ? 255 : (f <= 0.0 ? 0 : static_cast<int>(floor(f * 256.0)))); }
 
 Color color_fvec(const glm::fvec3 v) {
     Color c = { 
-        static_cast<int>(c_f2i(v.r)),
-        static_cast<int>(c_f2i(v.g)),
-        static_cast<int>(c_f2i(v.b)),
-        255
+        static_cast<unsigned char>(c_f2i(v.r)),
+        static_cast<unsigned char>(c_f2i(v.g)),
+        static_cast<unsigned char>(c_f2i(v.b)),
+        255 
     };
     return c;
 }
