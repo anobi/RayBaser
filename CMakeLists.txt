@@ -38,6 +38,7 @@ endif()
 target_sources(${PROJECT_NAME}
   PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ray.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/scene.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/primitive.cpp
 )
 target_include_directories(${PROJECT_NAME}
