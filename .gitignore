@@ -59,6 +59,12 @@ CTestTestfile.cmake
 CPack*
 _deps
 *.ninja*
+.cmake
+
+###########
+## Clion ##
+###########
+.idea
 
 
 ###################

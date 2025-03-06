@@ -1,7 +1,7 @@
 #include "scene.hpp"
 
 bool Scene::hit(const Raybaser::Ray *ray, RayHit* hit) const {
-    RayHit temp_hit;
+    auto temp_hit = RayHit();
     bool hit_anything = false;
     float closest = ray->t_max;
 

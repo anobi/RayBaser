@@ -28,17 +28,17 @@ Color color_fvec(const glm::fvec3 v) {
 
 
 Color ray_color_at(const Raybaser::Ray *ray, const Scene *scene, float t) {
-    RayHit hit;
-    if(scene->hit(ray, t, &hit)) {
+    auto hit = RayHit();
+    if(scene->hit(ray, &hit)) {
         return color_fvec(0.5f * (hit.normal + glm::fvec3(1.0f)));
     }
 
-    glm::fvec3 unit_direction = glm::normalize(ray->direction);
+    auto unit_direction = glm::normalize(ray->direction);
     auto a = 0.5f * (unit_direction.y + 1.0f);
-
-    glm::fvec3 gradient_start = glm::fvec3(1.0f);
-    glm::fvec3 gradient_end = glm::fvec3(0.5f, 0.7f, 1.0f);
+    auto gradient_start = glm::fvec3(1.0f);
+    auto gradient_end = glm::fvec3(0.5f, 0.7f, 1.0f);
     Color out = color_fvec((1.0f - a) * gradient_start + a * gradient_end);
+
     return out;
 }
 
@@ -47,7 +47,7 @@ void raytrace(Image *output, Scene *scene) {
     auto focal_length = 1.0f;
     auto viewport_height = 2.0f;
     auto viewport_width = viewport_height * (static_cast<float>(output->width) / output->height);
-    glm::fvec3 camera_position = glm::fvec3(0.0f);
+    auto camera_position = glm::fvec3(0.0f);
     
     auto u = glm::fvec3(viewport_width, 0.0f, 0.0f);
     auto v = glm::fvec3(0, -viewport_height, 0.0f);
@@ -85,14 +85,14 @@ int main() {
 
     Scene scene;
     Sphere sphere_1 = Sphere(
-        glm::fvec3(0.0f, 0.0f, -1.0f),      // position
-        glm::fvec3(1.0f, 0.0f, 0.5f),       // color
-        0.5f                                // radius
+        glm::fvec3(0.0f, 0.0f, -1.0f),          // position
+        glm::fvec3(1.0f, 0.0f, 0.5f),          // color
+        0.5f                                        // radius
     );
     Sphere sphere_2 = Sphere(
-        glm::fvec3(0.0f, -100.5f, -1.0f),   // position
-        glm::fvec3(0.0f, 1.0f, 0.5f),       // color
-        100.0f                              // radius
+        glm::fvec3(0.0f, -100.5f, -1.0f),  // position
+        glm::fvec3(0.0f, 1.0f, 0.5f),     // color
+        100.0f                                 // radius
     );
     scene.add(&sphere_1);
     scene.add(&sphere_2);

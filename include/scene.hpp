@@ -22,5 +22,5 @@ public:
     }
     
 private:
-    std::vector<> _objects;
+    std::vector<Hittable*> _objects;
 };
